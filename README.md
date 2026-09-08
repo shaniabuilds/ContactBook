@@ -14,52 +14,22 @@ A simple single-user contact management application built with React, Node.js, E
 ## Tech Stack
 
 ### Frontend
+
 - React
 - TypeScript
 - Vite
 - Tailwind CSS
 
 ### Backend
+
 - Node.js
 - Express.js
 - REST API
 
 ### Database
+
 - MongoDB
 - Mongoose
-
-### Deployment
-- Frontend: Vercel
-- Backend: Render
-- Database: MongoDB Atlas
-
-## Project Structure
-
-```text
-ContactBook/
-├── client/      
-├── server/  
-├── .gitignore
-└── README.md
-
-## Environment Variables
-
-### Client
-
-Create a `.env` file inside the `client` folder:
-
-```env
-VITE_API_URL=https://contactbook-mols.onrender.com
-```
-
-### Server
-
-Create a `.env` file inside the `server` folder:
-
-```env
-MONGO_URI=your_mongodb_connection_string
-PORT=5000
-```
 
 ## API Endpoints
 
@@ -78,5 +48,5 @@ For a production application, authentication and user-based data isolation shoul
 
 ## Live Demo
 
-- Frontend: [Add your Vercel URL here](https://contact-book-weld-ten.vercel.app/)
+- Frontend: https://contact-book-weld-ten.vercel.app/
 - Backend: https://contactbook-mols.onrender.com
