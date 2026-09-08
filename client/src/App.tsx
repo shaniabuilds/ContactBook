@@ -291,7 +291,14 @@ function App() {
                 View and manage your saved contacts.
               </p>
             </div>
-            
+
+            <button
+              onClick={openAddModal}
+              className="w-full rounded-xl border border-[#E8DCCF] bg-[#FAF3EC] px-5 py-3 text-sm font-semibold text-[#8D5B3F] transition hover:border-[#8D5B3F] hover:bg-[#F0E0CC] sm:w-auto"
+            >
+              
+              + New Contact
+            </button>
           </div>
 
           {/* Desktop Table */}
