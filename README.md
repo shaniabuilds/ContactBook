@@ -2,6 +2,11 @@
 
 A simple single-user contact management application built with React, Node.js, Express.js, and MongoDB.
 
+## Live Demo
+
+- **Frontend:** https://contact-book-weld-ten.vercel.app/
+- **Backend:** https://contactbook-mols.onrender.com
+
 ## Features
 
 - Add new contacts
@@ -29,7 +34,6 @@ A simple single-user contact management application built with React, Node.js, E
 
 - MongoDB
 
----
 ## Project Structure
 
 ```text
@@ -38,8 +42,8 @@ ContactBook/
 ├── server/
 ├── .gitignore
 └── README.md
+```
 
----
 ## API Endpoints
 
 | Method | Endpoint | Description |
@@ -54,8 +58,3 @@ ContactBook/
 This project is intentionally designed as a single-user contact book without authentication. Therefore, all contacts are shared and visible to anyone accessing the application.
 
 For a production application, authentication and user-based data isolation should be added.
-
-## Live Demo
-
-- Frontend: https://contact-book-weld-ten.vercel.app/
-- Backend: https://contactbook-mols.onrender.com
