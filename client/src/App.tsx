@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 
+const API_URL = "https://contactbook-mols.onrender.com";
+
 type Contact = {
   _id: string;
   name: string;
@@ -28,7 +30,6 @@ function App() {
     phone: "",
   });
 
-  // Show toast and auto-dismiss after 3 seconds
   const showToast = (message: string, type: Toast["type"] = "error") => {
     setToast({ message, type });
   };
@@ -49,7 +50,7 @@ function App() {
       setLoading(true);
       setError("");
 
-      const response = await axios.get("http://localhost:5000/api/contacts");
+      const response = await axios.get(`${API_URL}/api/contacts`);
 
       setContacts(response.data);
     } catch (error) {
@@ -115,14 +116,11 @@ function App() {
 
     try {
       if (editingId) {
-        await axios.put(
-          `http://localhost:5000/api/contacts/${editingId}`,
-          formData,
-        );
+        await axios.put(`${API_URL}/api/contacts/${editingId}`, formData);
 
         showToast("Contact updated successfully", "success");
       } else {
-        await axios.post("http://localhost:5000/api/contacts", formData);
+        await axios.post(`${API_URL}/api/contacts`, formData);
 
         showToast("Contact added successfully", "success");
       }
@@ -160,7 +158,7 @@ function App() {
     if (!deleteId) return;
 
     try {
-      await axios.delete(`http://localhost:5000/api/contacts/${deleteId}`);
+      await axios.delete(`${API_URL}/api/contacts/${deleteId}`);
 
       showToast("Contact deleted successfully", "success");
       setDeleteId(null);
@@ -283,7 +281,6 @@ function App() {
 
         {/* Table Card */}
         <section className="overflow-hidden rounded-2xl border border-[#E8DCCF] bg-white shadow-lg">
-          {/* Table Header */}
           <div className="flex flex-col gap-4 border-b border-[#F0E6D8] p-5 sm:flex-row sm:items-center sm:justify-between sm:p-6">
             <div>
               <h2 className="text-xl font-extrabold text-[#3E2723]">
@@ -463,72 +460,72 @@ function App() {
 
         {/* Add/Edit Modal */}
         {showModal && (
-  <div className="fixed inset-0 z-50 flex items-center justify-center bg-[#3E2723]/40 p-4 backdrop-blur-sm sm:p-6">
-    <div className="relative w-full max-w-[460px] overflow-hidden rounded-[24px] border border-[#E8DCCF] bg-white p-5 shadow-2xl sm:p-7">
-      <div className="pointer-events-none absolute -right-16 -top-16 h-[180px] w-[180px] rounded-full bg-[#E8DCCF]/60 blur-[90px]" />
+          <div className="fixed inset-0 z-50 flex items-center justify-center bg-[#3E2723]/40 p-4 backdrop-blur-sm sm:p-6">
+            <div className="relative w-full max-w-[460px] overflow-hidden rounded-[24px] border border-[#E8DCCF] bg-white p-5 shadow-2xl sm:p-7">
+              <div className="pointer-events-none absolute -right-16 -top-16 h-[180px] w-[180px] rounded-full bg-[#E8DCCF]/60 blur-[90px]" />
 
-      <div className="pointer-events-none absolute -bottom-16 -left-16 h-[160px] w-[160px] rounded-full bg-[#D8C3A5]/40 blur-[90px]" />
+              <div className="pointer-events-none absolute -bottom-16 -left-16 h-[160px] w-[160px] rounded-full bg-[#D8C3A5]/40 blur-[90px]" />
 
-      <div className="relative">
-        <p className="mb-2.5 text-[10px] font-bold uppercase tracking-[1.8px] text-[#8D5B3F]">
-          Contact Details
-        </p>
+              <div className="relative">
+                <p className="mb-2.5 text-[10px] font-bold uppercase tracking-[1.8px] text-[#8D5B3F]">
+                  Contact Details
+                </p>
 
-        <h2 className="text-2xl font-extrabold tracking-tight text-[#3E2723]">
-          {editingId ? "Edit Contact" : "Add Contact"}
-        </h2>
+                <h2 className="text-2xl font-extrabold tracking-tight text-[#3E2723]">
+                  {editingId ? "Edit Contact" : "Add Contact"}
+                </h2>
 
-        <p className="mt-2 text-sm text-[#8D7B70]">
-          Enter the contact details below.
-        </p>
+                <p className="mt-2 text-sm text-[#8D7B70]">
+                  Enter the contact details below.
+                </p>
 
-        <form
-          onSubmit={handleSubmit}
-          className="mt-6 flex flex-col gap-3.5"
-        >
-          <input
-            name="name"
-            placeholder="Name"
-            value={formData.name}
-            onChange={handleChange}
-            className="w-full rounded-xl border border-[#E8DCCF] bg-[#FAF3EC] px-4 py-3 text-sm outline-none focus:border-[#8D5B3F]"
-          />
+                <form
+                  onSubmit={handleSubmit}
+                  className="mt-6 flex flex-col gap-3.5"
+                >
+                  <input
+                    name="name"
+                    placeholder="Name"
+                    value={formData.name}
+                    onChange={handleChange}
+                    className="w-full rounded-xl border border-[#E8DCCF] bg-[#FAF3EC] px-4 py-3 text-sm outline-none focus:border-[#8D5B3F]"
+                  />
 
-          <input
-            name="email"
-            placeholder="Email"
-            value={formData.email}
-            onChange={handleChange}
-            className="w-full rounded-xl border border-[#E8DCCF] bg-[#FAF3EC] px-4 py-3 text-sm outline-none focus:border-[#8D5B3F]"
-          />
+                  <input
+                    name="email"
+                    placeholder="Email"
+                    value={formData.email}
+                    onChange={handleChange}
+                    className="w-full rounded-xl border border-[#E8DCCF] bg-[#FAF3EC] px-4 py-3 text-sm outline-none focus:border-[#8D5B3F]"
+                  />
 
-          <input
-            name="phone"
-            placeholder="Phone"
-            value={formData.phone}
-            onChange={handleChange}
-            className="w-full rounded-xl border border-[#E8DCCF] bg-[#FAF3EC] px-4 py-3 text-sm outline-none focus:border-[#8D5B3F]"
-          />
+                  <input
+                    name="phone"
+                    placeholder="Phone"
+                    value={formData.phone}
+                    onChange={handleChange}
+                    className="w-full rounded-xl border border-[#E8DCCF] bg-[#FAF3EC] px-4 py-3 text-sm outline-none focus:border-[#8D5B3F]"
+                  />
 
-          <button
-            type="submit"
-            className="mt-1.5 rounded-xl bg-[#3E2723] px-4 py-3 text-sm font-semibold text-white hover:bg-[#2C1B18]"
-          >
-            {editingId ? "Update Contact" : "Save Contact"}
-          </button>
+                  <button
+                    type="submit"
+                    className="mt-1.5 rounded-xl bg-[#3E2723] px-4 py-3 text-sm font-semibold text-white hover:bg-[#2C1B18]"
+                  >
+                    {editingId ? "Update Contact" : "Save Contact"}
+                  </button>
 
-          <button
-            type="button"
-            onClick={closeModal}
-            className="rounded-xl border border-[#E8DCCF] bg-[#FAF3EC] px-4 py-3 text-sm font-semibold text-[#8D7B70] hover:bg-white"
-          >
-            Cancel
-          </button>
-        </form>
-      </div>
-    </div>
-  </div>
-)}
+                  <button
+                    type="button"
+                    onClick={closeModal}
+                    className="rounded-xl border border-[#E8DCCF] bg-[#FAF3EC] px-4 py-3 text-sm font-semibold text-[#8D7B70] hover:bg-white"
+                  >
+                    Cancel
+                  </button>
+                </form>
+              </div>
+            </div>
+          </div>
+        )}
 
         {/* Delete Confirmation Modal */}
         {deleteId && (
