@@ -29,6 +29,17 @@ A simple single-user contact management application built with React, Node.js, E
 
 - MongoDB
 
+---
+## Project Structure
+
+```text
+ContactBook/
+├── client/
+├── server/
+├── .gitignore
+└── README.md
+
+---
 ## API Endpoints
 
 | Method | Endpoint | Description |
