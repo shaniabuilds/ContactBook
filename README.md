@@ -57,4 +57,6 @@ ContactBook/
 
 This project is intentionally designed as a single-user contact book without authentication. Therefore, all contacts are shared and visible to anyone accessing the application.
 
-For a production application, authentication and user-based data isolation should be added.
+## Author
+
+Shania
