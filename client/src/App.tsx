@@ -295,23 +295,23 @@ function App() {
           </div>
 
           {/* Desktop Table */}
-          <div className="hidden overflow-x-auto md:block">
+          <div className="hidden max-h-[650px] overflow-y-auto overflow-x-auto md:block">
             <table className="w-full min-w-[650px] border-collapse">
               <thead>
                 <tr>
-                  <th className="border-b border-[#F0E6D8] bg-[#FAF3EC] px-4 py-4 text-left text-[11px] font-bold uppercase tracking-wider text-[#8D7B70] sm:px-6">
+                  <th className="sticky top-0 z-10 border-b border-[#F0E6D8] bg-[#FAF3EC] px-4 py-4 text-left text-[11px] font-bold uppercase tracking-wider text-[#8D7B70] sm:px-6">
                     Name
                   </th>
 
-                  <th className="border-b border-[#F0E6D8] bg-[#FAF3EC] px-4 py-4 text-left text-[11px] font-bold uppercase tracking-wider text-[#8D7B70] sm:px-6">
+                  <th className="sticky top-0 z-10 border-b border-[#F0E6D8] bg-[#FAF3EC] px-4 py-4 text-left text-[11px] font-bold uppercase tracking-wider text-[#8D7B70] sm:px-6">
                     Email
                   </th>
 
-                  <th className="border-b border-[#F0E6D8] bg-[#FAF3EC] px-4 py-4 text-left text-[11px] font-bold uppercase tracking-wider text-[#8D7B70] sm:px-6">
+                  <th className="sticky top-0 z-10 border-b border-[#F0E6D8] bg-[#FAF3EC] px-4 py-4 text-left text-[11px] font-bold uppercase tracking-wider text-[#8D7B70] sm:px-6">
                     Phone
                   </th>
 
-                  <th className="border-b border-[#F0E6D8] bg-[#FAF3EC] px-4 py-4 text-left text-[11px] font-bold uppercase tracking-wider text-[#8D7B70] sm:px-6">
+                  <th className="sticky top-0 z-10 border-b border-[#F0E6D8] bg-[#FAF3EC] px-4 py-4 text-left text-[11px] font-bold uppercase tracking-wider text-[#8D7B70] sm:px-6">
                     Actions
                   </th>
                 </tr>
@@ -400,7 +400,7 @@ function App() {
           </div>
 
           {/* Mobile Contact Cards */}
-          <div className="space-y-3 p-4 md:hidden">
+          <div className="max-h-[600px] space-y-3 overflow-y-auto p-4 md:hidden">
             {contacts.length === 0 && !loading ? (
               <div className="py-10 text-center text-sm text-[#8D7B70]">
                 No contacts found. Add your first contact.
