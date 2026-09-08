@@ -245,12 +245,9 @@ function App() {
             </div>
           </div>
 
-          <button
-            onClick={openAddModal}
-            className="w-full rounded-xl bg-[#3E2723] px-6 py-3 text-sm font-semibold text-white shadow-md transition-all duration-300 hover:-translate-y-0.5 hover:bg-[#2C1B18] focus-visible:outline focus-visible:outline-2 focus-visible:outline-[#8D5B3F] focus-visible:outline-offset-2 sm:w-auto"
-          >
-            + Add Contact
-          </button>
+          <div className="w-fit rounded-xl bg-[#FAF3EC] px-4 py-3 text-sm font-semibold text-[#8D5B3F]">
+            {contacts.length} {contacts.length === 1 ? "Contact" : "Contacts"}
+          </div>
         </nav>
 
         {/* Hero Section */}
@@ -296,7 +293,6 @@ function App() {
               onClick={openAddModal}
               className="w-full rounded-xl border border-[#E8DCCF] bg-[#FAF3EC] px-5 py-3 text-sm font-semibold text-[#8D5B3F] transition hover:border-[#8D5B3F] hover:bg-[#F0E0CC] sm:w-auto"
             >
-              
               + New Contact
             </button>
           </div>
