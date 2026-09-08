@@ -17,7 +17,6 @@ A simple single-user contact management application built with React, Node.js, E
 
 - React
 - TypeScript
-- Vite
 - Tailwind CSS
 
 ### Backend
@@ -29,7 +28,6 @@ A simple single-user contact management application built with React, Node.js, E
 ### Database
 
 - MongoDB
-- Mongoose
 
 ## API Endpoints
 
@@ -42,7 +40,7 @@ A simple single-user contact management application built with React, Node.js, E
 
 ## Note
 
-This project is intentionally designed as a single-user contact book without authentication, as required by the assignment. Therefore, all contacts are shared and visible to anyone accessing the application.
+This project is intentionally designed as a single-user contact book without authentication. Therefore, all contacts are shared and visible to anyone accessing the application.
 
 For a production application, authentication and user-based data isolation should be added.
 
